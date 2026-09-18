@@ -91,7 +91,7 @@
  *
  * The led_customer_t structure definition is available in
  * include/shared/cmicfw/cmicx_led_public.h.
- * 
+ *
  ******************************************************************************/
 
 #include <shared/cmicfw/cmicx_led_public.h>

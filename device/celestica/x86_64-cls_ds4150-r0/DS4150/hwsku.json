@@ -150,12 +150,12 @@
             "default_brkout_mode": "1x800G",
             "autoneg": "off",
             "fec": "rs"
-        },        
+        },
         "Ethernet144": {
             "default_brkout_mode": "1x800G",
             "autoneg": "off",
             "fec": "rs"
-        },    
+        },
         "Ethernet152": {
             "default_brkout_mode": "1x800G",
             "autoneg": "off",

@@ -22,4 +22,3 @@ all:
 
 clean:
 	rm -rf *.elf *.o *.map *.bin *.hex
-

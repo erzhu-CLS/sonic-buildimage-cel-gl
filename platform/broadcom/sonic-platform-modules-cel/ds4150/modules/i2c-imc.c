@@ -423,11 +423,11 @@ static int imc_probe(struct pci_dev *dev, const struct pci_device_id *id)
 		err = -ENODEV;
 		goto probe_out_free;
 	}
-	pci_read_config_dword(priv->pcu.pci_dev, TSODCNTL,
-			      &priv->pcu.tsod_polling_interval);
 
 	mutex_init(&priv->pcu.mutex);
 
+	pci_read_config_dword(priv->pcu.pci_dev, TSODCNTL,
+			      &priv->pcu.tsod_polling_interval);
 	for (i = 0; i < 2; i++) {
 		err = imc_init_channelpair(priv, i,
 					   sadcntl & SADCNTL_LOCAL_NODEID_MASK);
@@ -442,9 +442,9 @@ probe_out_free_channelpair:
 		imc_free_channelpair(priv, j);
 
 	mutex_destroy(&priv->pcu.mutex);
+	pci_dev_put(priv->pcu.pci_dev);
 
 probe_out_free:
-	kfree(priv);
 	return err;
 }
 
@@ -461,6 +461,7 @@ static void imc_remove(struct pci_dev *dev)
 			       priv->pcu.tsod_polling_interval);
 
 	mutex_destroy(&priv->pcu.mutex);
+	pci_dev_put(priv->pcu.pci_dev);
 }
 
 static int imc_suspend(struct pci_dev *dev, pm_message_t mesg)
