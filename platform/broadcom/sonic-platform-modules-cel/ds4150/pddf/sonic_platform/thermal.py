@@ -8,7 +8,7 @@ try:
     import os
     import re
     import os.path
-    import smbus2
+    from . import smbus2
 except ImportError as e:
     raise ImportError(str(e) + "- required module not found")
 

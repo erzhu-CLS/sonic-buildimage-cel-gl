@@ -191,7 +191,7 @@ class ClsPddfSfp(PddfSfp):
     def get_transceiver_status(self):
         # Override to get the port cage type
         status_dict = super(ClsPddfSfp, self).get_transceiver_status()
-        if status_dict:
-            status_dict['cage_type'] = self.get_port_or_cage_type()
+        #if status_dict:
+        #    status_dict['cage_type'] = self.get_port_or_cage_type()
 
         return status_dict
